@@ -12,5 +12,5 @@
 	"QaAutomationTestJob": "ServicesPipeline_Dev",
     "DevTeamJIRA":"MFS",
 	"Other" : "",
-	"RORelations" : "svcA,DBSvcA,svcZ,svcX"
+	"RORelations" : "microserviceA,microserviceB,microserviceC"
 }
