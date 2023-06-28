@@ -53,7 +53,7 @@ release 'MFS - Release', {
         description = ''
         condition = null
         precondition = null
-        task 'Check Scan Results', {
+        task 'Code Coverage > 75', {
           description = ''
           actionLabelText = null
           advancedMode = '0'
@@ -87,7 +87,8 @@ release 'MFS - Release', {
           environmentTemplateName = null
           environmentTemplateProjectName = null
           errorHandling = 'stopOnError'
-          gateCondition = null
+          gateCondition = '''$[/javascript
+		//myStageRuntime.tasks[\'Run Code Quality and Security Scan\'].job.getLastSonarMetrics.coverage]	> 75	]'''
           gateType = 'POST'
           groupName = null
           groupRunType = null
@@ -101,7 +102,7 @@ release 'MFS - Release', {
           postp = null
           precondition = null
           requiredApprovalsCount = null
-          resourceName = null
+          resourceName = ''
           retryCount = null
           retryInterval = null
           retryType = null
@@ -128,7 +129,7 @@ release 'MFS - Release', {
           subworkflowDefinition = null
           subworkflowStartingState = null
           taskProcessType = null
-          taskType = null
+          taskType = 'CONDITIONAL'
           triggerType = null
           useApproverAcl = '0'
           waitForPlannedStartDate = '0'
@@ -140,7 +141,7 @@ release 'MFS - Release', {
           advancedMode = '0'
           afterLastRetry = null
           allowOutOfOrderRun = '0'
-          allowSkip = null
+          allowSkip = '0'
           alwaysRun = '0'
           applicationName = null
           applicationProjectName = null
@@ -174,15 +175,15 @@ release 'MFS - Release', {
           groupRunType = null
           insertRollingDeployManualStep = '0'
           instruction = null
-          notificationEnabled = null
-          notificationTemplate = null
+          notificationEnabled = '0'
+          notificationTemplate = 'ec_default_gate_task_notification_template'
           parallelToPrevious = null
           plannedEndDate = null
           plannedStartDate = null
           postp = null
           precondition = null
           requiredApprovalsCount = null
-          resourceName = null
+          resourceName = ''
           retryCount = null
           retryInterval = null
           retryType = null
@@ -209,10 +210,13 @@ release 'MFS - Release', {
           subworkflowDefinition = null
           subworkflowStartingState = null
           taskProcessType = null
-          taskType = null
+          taskType = 'APPROVAL'
           triggerType = null
           useApproverAcl = '0'
           waitForPlannedStartDate = '0'
+          approver = [
+            'admin',
+          ]
         }
       }
 
@@ -925,7 +929,7 @@ release 'MFS - Release', {
         waitForPlannedStartDate = '0'
       }
 
-      task 'Deploy Validation', {
+      task 'Deploy Validation - Run Smoke Tests', {
         description = ''
         actionLabelText = null
         advancedMode = '0'
@@ -973,7 +977,7 @@ release 'MFS - Release', {
         postp = null
         precondition = null
         requiredApprovalsCount = null
-        resourceName = null
+        resourceName = ''
         retryCount = null
         retryInterval = null
         retryType = null
@@ -990,7 +994,7 @@ release 'MFS - Release', {
         subapplication = null
         subpipeline = null
         subpluginKey = null
-        subprocedure = null
+        subprocedure = 'Smoke Test'
         subprocess = null
         subproject = 'MFS'
         subrelease = null
@@ -1000,7 +1004,7 @@ release 'MFS - Release', {
         subworkflowDefinition = null
         subworkflowStartingState = null
         taskProcessType = null
-        taskType = null
+        taskType = 'PROCEDURE'
         triggerType = null
         useApproverAcl = '0'
         waitForPlannedStartDate = '0'
@@ -1060,6 +1064,7 @@ release 'MFS - Release', {
     // Custom properties
 
     property 'ec_trigger_state', {
+      description = ''
       propertyType = 'sheet'
     }
   }
