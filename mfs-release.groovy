@@ -1016,4 +1016,51 @@ release 'MFS - Release', {
       pipelineCounter = '3'
     }
   }
+
+  trigger 'cb-mfs-release-trigger', {
+    description = ''
+    accessTokenPublicId = 'nhdzcjpw1b3r5aam5uljjort0jbqre'
+    actualParameter = [
+      'ec_stagesToRun': '["Release Readiness","Release"]',
+    ]
+    applicationName = null
+    enabled = '1'
+    environmentName = null
+    environmentProjectName = null
+    environmentTemplateName = null
+    environmentTemplateProjectName = null
+    insertRollingDeployManualStep = '0'
+    pipelineName = null
+    pluginKey = 'EC-Github'
+    pluginParameter = [
+      'commitStatusEvent': 'false',
+      'includeBranches': 'main',
+      'includeCommitStatuses': 'success',
+      'includePrActions': 'closed_merged',
+      'prEvent': 'false',
+      'pushEvent': 'true',
+      'repositories': 'ikurtz/mfs-cloudbees-cdro-pov',
+    ]
+    procedureName = null
+    processName = null
+    quietTimeMinutes = '0'
+    releaseName = 'MFS - Release'
+    rollingDeployEnabled = null
+    rollingDeployManualStepCondition = null
+    rollingDeployPhases = null
+    runDuplicates = '0'
+    scmSyncName = null
+    serviceAccountName = 'cb-mfs-github-svc-account'
+    snapshotName = null
+    triggerType = 'webhook'
+    webhookName = 'default'
+    webhookSecretCredentialName = 'cb-mfs-svc-account-token'
+    webhookSecretCredentialProjectName = 'MFS'
+
+    // Custom properties
+
+    property 'ec_trigger_state', {
+      propertyType = 'sheet'
+    }
+  }
 }
