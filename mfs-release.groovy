@@ -7,6 +7,7 @@ release 'MFS - Release', {
   timeZone = null
 
   pipeline 'pipeline_MFS - Release', {
+    description = ''
     disableMultipleActiveRuns = '0'
     disableRestart = '0'
     enabled = '1'
@@ -20,6 +21,7 @@ release 'MFS - Release', {
     workspaceName = null
 
     formalParameter 'ec_stagesToRun', defaultValue: null, {
+      description = ''
       expansionDeferred = '1'
       label = null
       orderIndex = null
@@ -42,15 +44,17 @@ release 'MFS - Release', {
       waitForPlannedStartDate = '0'
 
       gate 'PRE', {
+        description = ''
         condition = null
         precondition = null
         }
 
       gate 'POST', {
+        description = ''
         condition = null
         precondition = null
         task 'Check Scan Results', {
-          description = null
+          description = ''
           actionLabelText = null
           advancedMode = '0'
           afterLastRetry = null
@@ -131,7 +135,7 @@ release 'MFS - Release', {
         }
 
         task 'Check for Approval', {
-          description = null
+          description = ''
           actionLabelText = null
           advancedMode = '0'
           afterLastRetry = null
@@ -400,7 +404,7 @@ release 'MFS - Release', {
       }
 
       task 'Get Nexus-IQ Results', {
-        description = null
+        description = ''
         actionLabelText = null
         advancedMode = '0'
         afterLastRetry = null
@@ -427,7 +431,7 @@ release 'MFS - Release', {
         disableFailure = null
         duration = null
         emailConfigName = null
-        enabled = '1'
+        enabled = '0'
         environmentName = null
         environmentProjectName = null
         environmentTemplateName = null
@@ -481,7 +485,7 @@ release 'MFS - Release', {
       }
 
       task 'Get Helix ITSM Change Ticket', {
-        description = null
+        description = ''
         actionLabelText = null
         advancedMode = '0'
         afterLastRetry = null
@@ -508,7 +512,7 @@ release 'MFS - Release', {
         disableFailure = null
         duration = null
         emailConfigName = null
-        enabled = '1'
+        enabled = '0'
         environmentName = null
         environmentProjectName = null
         environmentTemplateName = null
@@ -577,18 +581,23 @@ release 'MFS - Release', {
       waitForPlannedStartDate = '0'
 
       gate 'PRE', {
+        description = ''
         condition = null
         precondition = null
         }
 
       gate 'POST', {
+        description = ''
         condition = null
         precondition = null
         }
 
-      task 'Deploy Dependencies', {
-        description = null
+      task 'Deploy Microservice A', {
+        description = ''
         actionLabelText = null
+        actualParameter = [
+          'APP_NAME': 'microserviceA',
+        ]
         advancedMode = '0'
         afterLastRetry = null
         allowOutOfOrderRun = '0'
@@ -599,13 +608,13 @@ release 'MFS - Release', {
         applicationVersion = null
         artifacts = null
         artifactsRegEx = null
-        ciConfigurationName = null
+        ciConfigurationName = 'ikurtz-cbdemos-thunder'
         ciControllerFolder = null
         ciControllerName = null
         ciEndpoint = null
         ciJobBranchName = null
-        ciJobFolder = null
-        ciJobName = null
+        ciJobFolder = '/'
+        ciJobName = 'deploy-microservice'
         command = null
         condition = null
         customLabel = null
@@ -634,7 +643,7 @@ release 'MFS - Release', {
         postp = null
         precondition = null
         requiredApprovalsCount = null
-        resourceName = null
+        resourceName = ''
         retryCount = null
         retryInterval = null
         retryType = null
@@ -661,13 +670,181 @@ release 'MFS - Release', {
         subworkflowDefinition = null
         subworkflowStartingState = null
         taskProcessType = null
-        taskType = null
+        taskType = 'CI_JOB'
         triggerType = null
         useApproverAcl = '0'
         waitForPlannedStartDate = '0'
       }
 
-      task 'Deploy Microservice', {
+      task 'Deploy Microservice B', {
+        description = ''
+        actionLabelText = null
+        actualParameter = [
+          'APP_NAME': 'microserviceA',
+        ]
+        advancedMode = '0'
+        afterLastRetry = null
+        allowOutOfOrderRun = '0'
+        allowSkip = null
+        alwaysRun = '0'
+        applicationName = null
+        applicationProjectName = null
+        applicationVersion = null
+        artifacts = null
+        artifactsRegEx = null
+        ciConfigurationName = 'ikurtz-cbdemos-thunder'
+        ciControllerFolder = null
+        ciControllerName = null
+        ciEndpoint = null
+        ciJobBranchName = null
+        ciJobFolder = '/'
+        ciJobName = 'deploy-microservice'
+        command = null
+        condition = null
+        customLabel = null
+        deployerExpression = null
+        deployerRunType = null
+        disableFailure = null
+        duration = null
+        emailConfigName = null
+        enabled = '1'
+        environmentName = null
+        environmentProjectName = null
+        environmentTemplateName = null
+        environmentTemplateProjectName = null
+        errorHandling = 'stopOnError'
+        gateCondition = null
+        gateType = null
+        groupName = null
+        groupRunType = null
+        insertRollingDeployManualStep = '0'
+        instruction = null
+        notificationEnabled = null
+        notificationTemplate = null
+        parallelToPrevious = null
+        plannedEndDate = null
+        plannedStartDate = null
+        postp = null
+        precondition = null
+        requiredApprovalsCount = null
+        resourceName = ''
+        retryCount = null
+        retryInterval = null
+        retryType = null
+        rollingDeployEnabled = null
+        rollingDeployManualStepCondition = null
+        rolloutNotificationEnabled = null
+        shell = null
+        skippable = '0'
+        snapshotName = null
+        stageSummaryParameters = null
+        startingStage = null
+        subErrorHandling = null
+        subTaskType = null
+        subapplication = null
+        subpipeline = null
+        subpluginKey = null
+        subprocedure = null
+        subprocess = null
+        subproject = 'MFS'
+        subrelease = null
+        subreleasePipeline = null
+        subreleasePipelineProject = null
+        subreleaseSuffix = null
+        subworkflowDefinition = null
+        subworkflowStartingState = null
+        taskProcessType = null
+        taskType = 'CI_JOB'
+        triggerType = null
+        useApproverAcl = '0'
+        waitForPlannedStartDate = '0'
+      }
+
+      task 'Deploy Microservice C', {
+        description = ''
+        actionLabelText = null
+        actualParameter = [
+          'APP_NAME': 'microserviceA',
+        ]
+        advancedMode = '0'
+        afterLastRetry = null
+        allowOutOfOrderRun = '0'
+        allowSkip = null
+        alwaysRun = '0'
+        applicationName = null
+        applicationProjectName = null
+        applicationVersion = null
+        artifacts = null
+        artifactsRegEx = null
+        ciConfigurationName = 'ikurtz-cbdemos-thunder'
+        ciControllerFolder = null
+        ciControllerName = null
+        ciEndpoint = null
+        ciJobBranchName = null
+        ciJobFolder = '/'
+        ciJobName = 'deploy-microservice'
+        command = null
+        condition = null
+        customLabel = null
+        deployerExpression = null
+        deployerRunType = null
+        disableFailure = null
+        duration = null
+        emailConfigName = null
+        enabled = '1'
+        environmentName = null
+        environmentProjectName = null
+        environmentTemplateName = null
+        environmentTemplateProjectName = null
+        errorHandling = 'stopOnError'
+        gateCondition = null
+        gateType = null
+        groupName = null
+        groupRunType = null
+        insertRollingDeployManualStep = '0'
+        instruction = null
+        notificationEnabled = null
+        notificationTemplate = null
+        parallelToPrevious = null
+        plannedEndDate = null
+        plannedStartDate = null
+        postp = null
+        precondition = null
+        requiredApprovalsCount = null
+        resourceName = ''
+        retryCount = null
+        retryInterval = null
+        retryType = null
+        rollingDeployEnabled = null
+        rollingDeployManualStepCondition = null
+        rolloutNotificationEnabled = null
+        shell = null
+        skippable = '0'
+        snapshotName = null
+        stageSummaryParameters = null
+        startingStage = null
+        subErrorHandling = null
+        subTaskType = null
+        subapplication = null
+        subpipeline = null
+        subpluginKey = null
+        subprocedure = null
+        subprocess = null
+        subproject = 'MFS'
+        subrelease = null
+        subreleasePipeline = null
+        subreleasePipelineProject = null
+        subreleaseSuffix = null
+        subworkflowDefinition = null
+        subworkflowStartingState = null
+        taskProcessType = null
+        taskType = 'CI_JOB'
+        triggerType = null
+        useApproverAcl = '0'
+        waitForPlannedStartDate = '0'
+      }
+
+      task 'Deploy Sample Insurance Application', {
         description = ''
         actionLabelText = null
         advancedMode = '0'
@@ -749,7 +926,7 @@ release 'MFS - Release', {
       }
 
       task 'Deploy Validation', {
-        description = null
+        description = ''
         actionLabelText = null
         advancedMode = '0'
         afterLastRetry = null
@@ -833,6 +1010,7 @@ release 'MFS - Release', {
     // Custom properties
 
     property 'ec_counters', {
+      description = ''
 
       // Custom properties
       pipelineCounter = '3'
