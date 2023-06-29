@@ -788,7 +788,7 @@ release 'MFS - Release', {
         ciJobFolder = '/'
         ciJobName = 'deploy-microservice'
         command = null
-        condition = '$[/javascript myPipelineRuntime/RORelations == "microserviceC"]'
+        condition = '$[/javascript myPipelineRuntime.RORelations == "microserviceC"]'
         customLabel = null
         deployerExpression = null
         deployerRunType = null
