@@ -620,7 +620,7 @@ release 'MFS - Release', {
         ciJobFolder = '/'
         ciJobName = 'deploy-microservice'
         command = null
-        condition = null
+        condition = '$[/javascript myPipelineRuntime.RORelations == "microserviceA"]'
         customLabel = null
         deployerExpression = null
         deployerRunType = null
@@ -704,7 +704,7 @@ release 'MFS - Release', {
         ciJobFolder = '/'
         ciJobName = 'deploy-microservice'
         command = null
-        condition = null
+        condition = '$[/javascript myPipelineRuntime.RORelations == "microserviceB"]'
         customLabel = null
         deployerExpression = null
         deployerRunType = null
