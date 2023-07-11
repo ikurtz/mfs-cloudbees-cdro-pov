@@ -13,4 +13,5 @@
     "DevTeamJIRA":"MFS",
 	"Other" : "",
 	"RORelations" : "microserviceA_java,microserviceB_python,microserviceC_angular"
+	"ReleaseTemplate": "java"
 }
